@@ -13,9 +13,6 @@ module.exports = (req, res, next) => {
   //   next(" error");
   // }
 
-
-
-  
   if (name) {
     next();
   } else {

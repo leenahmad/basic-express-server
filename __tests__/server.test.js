@@ -1,20 +1,24 @@
-'use strict';
 
-const server = require('../src/server.js')
+'use strict'
 
-const supertest = require('supertest')
+const server = require('../src/server.js');
 
-const request = supertest(server.app)
 
-describe('testing API server' , ()=> {
+const supertest = require('supertest');
 
-    it('testing /', async()=> {
+
+const request = supertest(server.app);
+
+describe('testing API server',() => {
+   
+    it('testing /', async() => {
         const response = await request.get('/');
-        expect(response.text).toEqual('home route')
+      
+        // expect(response.text).toEqual('home route');
+        // or 
+        expect(response.status).toEqual(200);
+
     })
 
-    it('test /dsts' , async () =>{
-        const response = await request.get('/data');
-        expect(typeof response.body).toEqual('object')
-    })
+   
 })
